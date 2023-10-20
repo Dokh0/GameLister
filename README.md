@@ -59,41 +59,6 @@ The Authentication flow for the application is:
 
 ## Endpoints
 
-#### users
-| HTTP Verbs | Endpoints | Action |
-| --- | --- | --- | 
-| GET | /api/user/:id | muestra tu perfil |
-| GET | /api/platform | muestra las platafomas |
-| GET | /api/platform/:id | muestra una platafoma especifica |
-| GET | /api/catalogue | muestra el catalogo |
-| GET | /api/catalogue/:id | muestra un juego del catalogo |
-| GET | /api/my_catalogue | muestra mi catalogo |
-| GET | /api/my_catalogue/:id | muestra mi juego del catalogo |
-| DELETE | /api/my_catalogue/:id | Elimina un juego de su catalogo |
-| DELETE | /api/user/:id | Elimina mi propio perfil |
-| PUT | /api/my_catalogue/:id | actualiza un juego de mi catalogo |
-| PUT | /api/user/:id | actualiza mi perfil de usuario |
-
-
-#### Ad
-| HTTP Verbs | Endpoints | Action |
-| --- | --- | --- |
-| GET | /api/user/:id | muestra tu perfil |
-| GET | /api/platform | muestra las platafomas |
-| GET | /api/platform/:id | muestra una platafoma especifica |
-| GET | /api/catalogue | muestra el catalogo |
-| GET | /api/catalogue/:id | muestra un juego del catalogo |
-| GET | /api/my_catalogue | muestra mi catalogo |
-| GET | /api/my_catalogue/:id | muestra mi juego del catalogo |
-| DELETE | /api/my_catalogue/:id | Elimina un juego de su catalogo |
-| DELETE | /api/user/:id | Elimina mi propio perfil |
-| PUT | /api/my_catalogue/:id | actualiza un juego de mi catalogo |
-| PUT | /api/user/:id | actualiza mi perfil de usuario |
-
-
-
-
-
 ### User Signup/Login
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -139,27 +104,30 @@ DELETE | /api/my_catalogue/:id   | YES   | admin  | Delete my catalogue by id (g
 DELETE | /api/user/:id   | YES           | admin | Delete my user       |                                              | { message: 'Profile deleted' }
 DELETE | /api/catalogue/:id/comments/:id  | YES           | admin | Delete comments by id      |                                              | { message: 'Comment deleted' }
 PUT | /api/platform/:id    | YES   | admin | Edit consoles by id      |     `name`, `version`, `year`   | [{message: 'Console updated', catalogue: catalogue}]
-PUT | /api/catalogue/:id    | YES   | admin | Edit catalogue by id      |     `title`, `description`, `genre`, `ỳear`, `company`   | [{message: 'Catalogue updated', catalogue: catalogue}]
+PUT | /api/catalogue/:id    | YES   | admin | Edit catalogue by id      |     `title`, `description`, `genre`, `year`, `company`   | [{message: 'Catalogue updated', catalogue: catalogue}]
 PUT | /api/my_catalogue/:id    | YES   | admin | Edit my catalogue by id (game status and ownership)      |     `Status`, `Owned`   | {message: 'My catalogue updated'}
 PUT | /api/user/:id   | YES   | admin | Edit my profile      |       `name`, `username`, `email`, `password`           | {message: 'User updated'}
 POST | /api/platform  | YES   | admin | Create console      |       `name`, `version`, `year`          | {message: 'Console created' platform: platform}
-POST | /api/catalogue  | YES   | admin | Create videogame data      |       `title`, `description`, `genre`, `ỳear`, `company`, `rate`          | {message: 'Game created' catalogue: catalogue}
+POST | /api/catalogue  | YES   | admin | Create videogame data      |       `title`, `description`, `genre`, `year`, `company`, `rate`          | {message: 'Game created' catalogue: catalogue}
 POST    | /api/catalogue/:id/comments    | YES   | admin |  Post a comment    | `query params`           | {comment}
 
 
-### Owner Contact_info Endpoints 
+### Catalogue Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /contactinfo    | YES   | admin | Get All Contact info       |  `query params`                                 | [{contactinfo}]
-GET    | /contactinfo/:contactinfoid    | YES   | admin | Get One Contact info |                        | {contactinfo}
-GET    | /contactinfo/profile    | YES   | user | Get Own Profile          |                                                 |  {contactinfo}
-POST   | /contactinfo             | YES   | user | Create own Contact info    | `phone`, `address`       | {contactinfo}
-PUT    | /contactinfo/:contactinfoid    | YES   | user |  Update own Contact info      | `phone`, `address`    | {message: 'Contact information updated'}
-DELETE | /contactinfo/profile    | YES   | user | Delete own Contact info       |                                               | { message: 'Contact information deleted' }
-DELETE | /contactinfo/:contactinfoid      | YES   | personnel | Delete one Contact info     |                                  | {message: 'Contact information deleted'}
+GET    | /api/catalogue	    | NO   | user | Get All Catalogue       |  `query params`                                 | [{catalogue}]
+GET    | /api/catalogue/:id    | NO   | user | Get catalogue by ID	query params |                        | {catalogue}
+GET    | /api/catalogue/:id/comments	  | YES   | user | Get comments for a specific catalogue entry      |  `query params`     | [{comments}]
+GET    | /api/catalogue/:genre	  | NO   | user | Get all catalogues of a specific genre      |  `query params`     | [{catalogue}]
+GET    | /api/catalogue/:year	    | NO   | user | Get all catalogues released in a specific year       |  `query params`         | [{catalogue}]
+GET    | /api/catalogue/owned	  | YES   | user | Get all catalogues owned by the user      |  `query params`     | [{catalogue}]
+POST   | /api/catalogue             | YES   | user | Create a new catalogue entry    | `title`, `description`, `genre`, `year`, `company`, `rate`       | {catalogue}
+POST   | /api/catalogue/:id/comments	  | YES   | user | Post a new comment for a specific catalogue entry      |  `text`     | [{comments}]
+PUT    | /api/catalogue/:id    | YES   | user |  Update a catalogue entry by ID      | `title`, `description`, `genre`, `year`, `company`, `rate`    | {message: 'Catalogue updated'}
+DELETE | /api/catalogue/:id    | YES   | user | Delete a catalogue entry by ID       |                      | { message: 'Catalogue deleted' }
+DELETE | /api/catalogue/:id/comment/:id      | YES   | user | Delete a comment on a specific catalogue entry     |    | {message: 'Comment deleted'}
 
-(*) Note: We will not use POST for the user to create contactinfo because it will be created directly from the Signup.
 
 ### Vets_info Endpoints
 
