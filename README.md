@@ -10,10 +10,14 @@ Julio, Theshia and Yeray.
 ### Project Idea:
 - Our project involves creating a platform that serves as a comprehensive video game database, similar to IMDb, but centered around games. Users can explore detailed game profiles, which include information, reviews, and multimedia content. What sets us apart is the ability for users to create personal profiles. These profiles allow them to keep a record of the games they have played, are currently playing, or wish to play in the future. Users can also provide ratings and reviews for games. In essence, we are building a community where gamers can share their gaming stories, maintain a personalized catalog, and connect with other players. Our goal is to be the ultimate source of game information and a space where the community can share experiences and discover new titles. Welcome to the evolution of the online gaming world.
 
-Roles: There will be 3 main roles:
+Roles: There will be 2 main roles:
 - Admin: This role has full permissions. It can view, create, update and delete information from all tables.
 
 - User (pet owner): This role can view all vet and treatment information. But you can only see your own appointments, pets and contact information (not other users). Likewise, you can only create, update and delete your own data. You have access to the information of all available appointments and the possibility to update the "status" field of the appointments when you select one to book for your pet, so that its status changes to "not available".
+
+-Tables:
+![image](https://github.com/Dokh0/GameLister/assets/139643932/fa9a3b21-093d-48fb-a322-be9fd16c7102)
+
 
 ### GameLister Features
 - Platform catalogue.
