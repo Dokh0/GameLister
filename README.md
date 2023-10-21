@@ -125,16 +125,17 @@ DELETE | /api/catalogue/:id    | YES   | user | Delete a catalogue entry by ID  
 DELETE | /api/catalogue/:id/comment/:id      | YES   | user | Delete a comment on a specific catalogue entry     |    | {message: 'Comment deleted'}
 
 
-### Vets_info Endpoints
+### Platforms
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /vet            | YES   | user | Get All Vets       |  `query params`                                 | [{vet}]
-GET    | /vet/:vetId      | YES   | user | Get One Vet       |                               | {vet}
-GET    | /vet/profile     | YES   | personnel | Get Own Vet       |                               | {vet}
-POST   | /vet            | YES   | admin |  Create one Vet        | `membership_num`,`first_name`, `last_name`, `email`, `password`, `phone`, `specializaition`, `profile_picture`  | {vet}
-PUT   |  /vet/:vetId     | YES   | admin |  Update one Vet        | `membership_num`, `first_name`, `last_name`, `email`, `password`, `phone`, `specializaition`, `profile_picture`  | {message: 'Vet updated'}
-DELETE | /vet/:vetId    | YES   | admin | Delete one user         |                                                   | {message: 'Vet deleted'}
+GET    | /platforms            | NO   | user | Get All Platforms       |  `query params`                                 | [{platforms}]
+GET    | /platforms/:id      | NO   | user | Get One Platform       |                               | {platform}
+GET    | /platforms/:id/catalogue     | NO   | user | Get the catalogue of an specific platfomr       |                  | [{catalogue}]
+GET    | /platforms/platform_id/catalogue/catalogue_id     | NO   | user | Get the specific catalogue of an specific platfomr       |                  | {catalogue}
+POST   | /platforms            | YES   | admin |  Create a new platform        | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom Create'}
+PUT   |  /platfomrs/:id     | YES   | admin |  Update an specific platfomr     | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom updated'}
+DELETE | /platforms/:id    | YES   | admin | Delete one platfomr         |                                                   | {message: 'Platform deleted'}
 
 
 ### Pet Endpoints 
