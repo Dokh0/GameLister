@@ -125,17 +125,27 @@ DELETE | /api/catalogue/:id    | YES   | user | Delete a catalogue entry by ID  
 DELETE | /api/catalogue/:id/comment/:id      | YES   | user | Delete a comment on a specific catalogue entry     |    | {message: 'Comment deleted'}
 
 
-### Platforms
+### Platforms Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /platforms            | NO   | user | Get All Platforms       |  `query params`                                 | [{platforms}]
-GET    | /platforms/:id      | NO   | user | Get One Platform       |                               | {platform}
-GET    | /platforms/:id/catalogue     | NO   | user | Get the catalogue of an specific platfomr       |                  | [{catalogue}]
+GET    | /platforms            | NO   | user/admin | Get All Platforms       |  `query params`                                 | [{platforms}]
+GET    | /platforms/:id      | NO   | user/admin | Get One Platform       |                               | {platform}
+GET    | /platforms/:id/catalogue     | NO   | user/admin | Get the catalogue of an specific platfomr       |                  | [{catalogue}]
 GET    | /platforms/platform_id/catalogue/catalogue_id     | NO   | user | Get the specific catalogue of an specific platfomr       |                  | {catalogue}
 POST   | /platforms            | YES   | admin |  Create a new platform        | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom Create'}
 PUT   |  /platfomrs/:id     | YES   | admin |  Update an specific platfomr     | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom updated'}
 DELETE | /platforms/:id    | YES   | admin | Delete one platfomr         |                                                   | {message: 'Platform deleted'}
+
+### Collectios Endpoints 
+
+METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
+GET    | /collections            | NO   | user/admin | Get All Collections       |  `query params`                                 | [{collections}]
+GET    | /collections/:id      | NO   | user/admin | Get One Collections       |                               | {collections}
+POST   | /collections            | YES   | admin |  Create a new collections        | `title_collection` | {collections}  | {message: 'Collections Create'}
+PUT   |  /collections/:id     | YES   | admin |  Update an specific collections     | `title_collection` | {collections}  | {message: 'Collections updated'}
+DELETE | /collections/:id    | YES   | admin | Delete one collections         |                                                   | {message: 'Collections deleted'}
 
 
 ### Pet Endpoints 
