@@ -131,13 +131,15 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
 GET    | /platforms            | NO   | user/admin | Get All Platforms       |  `query params`                                 | [{platforms}]
 GET    | /platforms/:id      | NO   | user/admin | Get One Platform       |                               | {platform}
-GET    | /platforms/:id/catalogue     | NO   | user/admin | Get the catalogue of an specific platfomr       |                  | [{catalogue}]
-GET    | /platforms/platform_id/catalogue/catalogue_id     | NO   | user | Get the specific catalogue of an specific platfomr       |                  | {catalogue}
+GET    | /platforms/:id/catalogue     | NO   | user/admin | Get the catalogue of an specific platform       |                  | [{catalogue}]
+GET    | /platforms/platform_id/catalogue/catalogue_id     | NO   | user | Get the specific catalogue of an specific platform       |                  | {catalogue}
 GET    | /platforms/year/:year	            | NO   | user/admin | Get Platforms by Year       |  `year`                                 | [{platforms}]
 GET    | /platforms/:platform_id/year/:year/catalogue	            | NO   | user/admin | Get Catalogue by Platform and Year       |                                  | [{catalogue}]
-POST   | /platforms            | YES   | admin |  Create a new platform        | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom Create'}
-PUT   |  /platfomrs/:id     | YES   | admin |  Update an specific platfomr     | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom updated'}
-DELETE | /platforms/:id    | YES   | admin | Delete one platfomr         |                                                   | {message: 'Platform deleted'}
+GET    | /platforms/:platform_id/genre/:genre/catalogue	            | NO   | user/admin | Get Catalogue by Platform and genre       |                                  | [{catalogue}]
+POST   | /platforms            | YES   | admin |  Create a new platform        | `name`,`version`, `year` | {platform}  | {message: 'Platfom Create'}
+POST   | /platforms/:platform_id/catalogue/:catalogue_id            | YES   | admin |  Add Game to Platform        | `title`, `description`, `genre`, `year`, `company`, `rate` | {message: 'Game added to Platform'}
+PUT   |  /platforms/:id     | YES   | admin |  Update an specific platform     | `name`,`version`, `year` | {platform}  | {message: 'Platfom updated'}
+DELETE | /platforms/:id    | YES   | admin | Delete one platform         |                                                   | {message: 'Platform deleted'}
 
 ### Collection Endpoints 
 
@@ -145,6 +147,7 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
 GET    | /collections            | NO   | user/admin | Get All Collections       |  `query params`                                 | [{collections}]
 GET    | /collections/:id      | NO   | user/admin | Get One Collections       |                               | {collections}
+GET    | /collections/:collection_id/catalogue      | NO   | user/admin | Get Catalogue by Collection       |                               | {catalogue}
 POST   | /collections            | YES   | admin |  Create a new collections        | `title_collection` | {collections}  | {message: 'Collections Create'}
 PUT   |  /collections/:id     | YES   | admin |  Update an specific collections     | `title_collection` | {collections}  | {message: 'Collections updated'}
 DELETE | /collections/:id    | YES   | admin | Delete one collections         |                                                   | {message: 'Collections deleted'}
