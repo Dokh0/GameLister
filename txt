@@ -1,0 +1,17 @@
+El git push origin nombre de la rama en la que estamos, se hace para
+subir el repo por primera vez.
+
+rebase: para forzar el cambio.
+
+git branch: nos muestra las ramas que tiene el repo
+git branch nombre: crea una rama con el nombre especificado
+git branch -r: nos muestra las ramas remotas
+git checkout nombre-de-la-rama a la que queremos movernos: para cambiarnos de ramas
+git push origin nombre-de-la-rama-propia en la que estamos trabajando (La mia): para pushear los cambios locales
+Estando en la rama main se hace el push normal.
+git pull origin main: para traernos los cambios que hay en la rama main
+git fetch origin nombre-de-la-rama-que-queremos-traer: para traer la rama que esta en remoto (cuando no tienes rama. Solo la primera vez)
+merge: antes de mezclar una rama tenemos que traer la rama main
+git merge main: me traigo el main a mi rama. cuando todo esta funcionando bien lo mezclamos con el main original
+git merge nombre-rama-propia:
+git branch -d nombre-rama que queremos borrar: borrar una rama
