@@ -33,10 +33,6 @@ Roles: There will be 2 main roles:
 - Gamification: Incorporate gamification elements like badges, achievements, and rewards for users who actively engage with the platform, such as writing insightful reviews or contributing valuable content.
 - Games recommendations by AI based on your profile.
 
-### Tables:
-![image](https://github.com/VeronicaRamirezMoreno/Project-2-API-Rest/assets/122170615/90340a1a-4d1a-4309-84b2-433e8c73ae00)
-
-
 ### Relationships between tables:
 
 #### One to one:
