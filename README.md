@@ -36,18 +36,18 @@ Roles: There will be 2 main roles:
 ### Relationships between tables:
 
 #### One to one:
-- Ref: Users.id_User - Contact_information.id_ContactInfo
-- Ref: Users.id_User - Vets_information.id_Vet 
-
+- Ref: users.user_id - contactInfo.user_id
 #### One to many:
-- Ref: Pets.id_Pet > Users.id_User
-- Ref: Appointments.id_Appointment > Pets.id_Pet
-- Ref: Appointments.id_Appointment  > Users.id_User
+- Ref: catalogue.catalogue_id < comments.catalogue_id
+- Ref: collections.catalogue_id < catalogue.catalogue_id
+- Ref: users.user_id < comments.user_id
 
 #### Many to many:
-- Ref: Appointments <> Treatments -- A treatment can have several appointments, and several treatments can be given at the same appointment.
-
-
+- Ref: platforms.platform_id <> platform_catalogue.platform_id
+- Ref: catalogue.catalogue_id <> platform_catalogue.catalogue_id
+- Ref: users.user_id <> user_catalogue.user_id
+- Ref: catalogue.catalogue_id <> user_catalogue.catalogue_id
+- 
 ### Authentication Endpoints
 The Authentication flow for the application is:
 ![image](https://github.com/VeronicaRamirezMoreno/Project-2-API-Rest/assets/122170615/c4cb04e0-a87f-4aaf-b399-c74427c46ed8)
