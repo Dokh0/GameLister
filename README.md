@@ -30,7 +30,7 @@ Roles: There will be 2 main roles:
 - Filters by game, genre, year, etc.
 - Website
 - DataBase
-- Gamification: Incorporate gamification elements like badges, achievements, and rewards for users who actively engage with the platform, such as writing insightful reviews or contributing valuable content.
+- Gamification: gamification elements like badges, achievements, and rewards for users who actively engage with the platform, such as writing insightful reviews or contributing valuable content.
 - Games recommendations by AI based on your profile.
 
 ### Relationships between tables:
