@@ -47,7 +47,7 @@ Roles: There will be 2 main roles:
 - Ref: catalogue.catalogue_id <> platform_catalogue.catalogue_id
 - Ref: users.user_id <> user_catalogue.user_id
 - Ref: catalogue.catalogue_id <> user_catalogue.catalogue_id
-- 
+
 ### Authentication Endpoints
 The Authentication flow for the application is:
 ![image](https://github.com/VeronicaRamirezMoreno/Project-2-API-Rest/assets/122170615/c4cb04e0-a87f-4aaf-b399-c74427c46ed8)
