@@ -133,11 +133,13 @@ GET    | /platforms            | NO   | user/admin | Get All Platforms       |  
 GET    | /platforms/:id      | NO   | user/admin | Get One Platform       |                               | {platform}
 GET    | /platforms/:id/catalogue     | NO   | user/admin | Get the catalogue of an specific platfomr       |                  | [{catalogue}]
 GET    | /platforms/platform_id/catalogue/catalogue_id     | NO   | user | Get the specific catalogue of an specific platfomr       |                  | {catalogue}
+GET    | /platforms/year/:year	            | NO   | user/admin | Get Platforms by Year       |  `year`                                 | [{platforms}]
+GET    | /platforms/:platform_id/year/:year/catalogue	            | NO   | user/admin | Get Catalogue by Platform and Year       |                                  | [{catalogue}]
 POST   | /platforms            | YES   | admin |  Create a new platform        | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom Create'}
 PUT   |  /platfomrs/:id     | YES   | admin |  Update an specific platfomr     | `name`,`version`, `year` | {platfomr}  | {message: 'Platfom updated'}
 DELETE | /platforms/:id    | YES   | admin | Delete one platfomr         |                                                   | {message: 'Platform deleted'}
 
-### Collectios Endpoints 
+### Collection Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
