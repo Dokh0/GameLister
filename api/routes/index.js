@@ -1,13 +1,12 @@
-/* const router = require('express').Router()
+const router = require('express').Router()
 
 
 //importar archivos rutas
-const userRouter = require('./user.router.js')
-
+const userRouter = require('./user.router')
 
 //definir rutas
 router.user('./user', userRouter)
 
 
 //exportar modulo
-module.exports = router */
+module.exports = router 
