@@ -21,10 +21,11 @@ async function getOnePlatform(req, res) {
 
 async function createPlatform(req, res) {
 	try {
-		const [platformExist, platform] = await Platform.create(req.body)
+        const [platformExist, platform] = await Platform.create(req.body)
         if (!platformExist) {
 			return res.status(200).json({ message: 'Console created', platform: platform })
-		} else {
+        
+        } else {
 			return res.status(404).send('Console is already in the Database')
 		}
 	} catch (error) {
