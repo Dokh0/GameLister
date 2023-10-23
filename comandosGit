@@ -16,3 +16,16 @@ git merge main: me traigo el main a mi rama. cuando todo esta funcionando bien l
 git merge nombre-rama-propia:
 git branch -d nombre-rama que queremos borrar: borrar una rama
 
+Contratiempos:
+Al intentar hacer un Post en postman
+{
+    "phone": 665875412,
+    "address":"C/palmeral,52"
+}
+Salia este error: 
+notNull Violation: contact_info.phone cannot be null,
+notNull Violation: contact_info.address cannot be null
+
+Solucion: en la terminal tenemos que matar la conexion, no basta con cerrarla.
+Hay que pulsar boton secundarion del raton en la terminal y nos pone kill terminal, lo ejecutamos e iniciamos de nuevo la conexion.
+Hacemos nuevamente el Post desde el postman y se crea el registo.
