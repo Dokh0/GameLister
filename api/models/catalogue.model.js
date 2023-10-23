@@ -24,7 +24,7 @@ const Catalogue = sequelize.define(
             allowNull: false,
         },
         rate: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DOUBLE,
             allowNull: false,
     }
 },

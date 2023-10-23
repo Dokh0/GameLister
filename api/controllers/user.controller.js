@@ -1,12 +1,12 @@
-const User = require('../models/user')
+const User = require('../models/user.model')
 
 async function getAllUser(req, res) {
     try {
         const user = await User.findAll({ paranoid: false })
-        if (user) {
+        if (user.role === 'admin') {
             return res.status(200).json(user)
         } else {
-            return res.status(404).send('No users found')
+            return res.status(404).send('No permissions allowed')
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -26,12 +26,9 @@ async function getOneUser(req, res) {
     }
 }
 
-//lazyLoading
-async function getOneUserLazy(req, res) {
+async function getProfile(req, res) {
     try {
         const user = await User.findByPk(req.params.id)
-        const movie = await user.getMovies();
-        res.send({ user, movie });//envia la respuesta al postman
         if (user) {
             return res.status(200).json(user)
         } else {
@@ -42,34 +39,48 @@ async function getOneUserLazy(req, res) {
     }
 }
 
-//eagerLoading
-async function getOneUserEager(req, res) {
-    try {
-        const movie = await Movie.findByPk(req.params.id)
-        const user = await User.findByPk(req.params.id, {
-            include: [{
-                model: Movie,
-                through: { attributes: [] }
-            }]
-        })
+// //lazyLoading
+// async function getOneUserLazy(req, res) {
+//     try {
+//         const user = await User.findByPk(req.params.id)
+//         const movie = await user.getMovies();
+//         res.send({ user, movie });//envia la respuesta al postman
+//         if (user) {
+//             return res.status(200).json(user)
+//         } else {
+//             return res.status(404).send('User not found')
+//         }
+//     } catch (error) {
+//         res.status(500).send(error.message)
+//     }
+// }
+
+// //eagerLoading
+// async function getOneUserEager(req, res) {
+//     try {
+//         const movie = await Movie.findByPk(req.params.id)
+//         const user = await User.findByPk(req.params.id, {
+//             include: [{
+//                 model: Movie,
+//                 through: { attributes: [] }
+//             }]
+//         })
 
 
-        if (user) {
-            return res.status(200).json(user)
-        } else {
-            return res.status(404).send('User not found')
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-}
+//         if (user) {
+//             return res.status(200).json(user)
+//         } else {
+//             return res.status(404).send('User not found')
+//         }
+//     } catch (error) {
+//         res.status(500).send(error.message)
+//     }
+// }
 
 
 async function createUser(req, res) {
     try {
-        const user = await User.create({
-            firstName: req.body.firstName,
-        })
+        const user = await User.create(req.body)
         return res.status(200).json({ message: 'User created', user: user })
     } catch (error) {
         res.status(500).send(error.message)
@@ -114,9 +125,10 @@ async function deleteUser(req, res) {
 module.exports = {
     getAllUser,
     getOneUser,
+    getProfile,
     createUser,
     updateUser,
     deleteUser,
-    getOneUserLazy,
-    getOneUserEager,
+    // getOneUserLazy,
+    // getOneUserEager,
 }
