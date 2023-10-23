@@ -1,23 +1,24 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../../database')
+const { sequelize } = require('../../database/index')
+
 const Platform = sequelize.define(
     'platform', {
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
     },
-    version: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        version: {
+            type: DataTypes.STRING,
+            allowNull: false,
     },
-    year: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        year: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
     },
 },
 
-    {
-        timestamps: false
-    })
+{
+    timestamps: false
+})
 
 module.exports = Platform

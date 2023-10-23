@@ -1,15 +1,16 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../../database')
+const { sequelize } = require('../../database/index')
+
 const Comment = sequelize.define(
     'comment', {
-    comment: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        comment: {
+            type: DataTypes.STRING,
+            allowNull: false,
     },
 },
 
-    {
-        timestamps: false
-    })
+{
+    timestamps: false
+})
 
 module.exports = Comment

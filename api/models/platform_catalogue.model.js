@@ -1,23 +1,13 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../../database')
+const { sequelize } = require('../../database/index')
+
 const Platform_catalogue = sequelize.define(
     'platform_catalogue', {
-    favorite: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-    },
-    status: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    obtained: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-    },
+       
 },
 
-    {
-        timestamps: false
-    })
+{
+    timestamps: false
+})
 
 module.exports = Platform_catalogue

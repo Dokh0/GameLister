@@ -1,15 +1,16 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../../database')
+const { sequelize } = require('../../database/index')
+
 const Collection = sequelize.define(
     'collection', {
-    title_collection: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        title_collection: {
+            type: DataTypes.STRING,
+            allowNull: false,
     },
 },
 
-    {
-        timestamps: false
-    })
+{
+    timestamps: false
+})
 
 module.exports = Collection
