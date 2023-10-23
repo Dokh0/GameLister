@@ -15,3 +15,9 @@ merge: antes de mezclar una rama tenemos que traer la rama main
 git merge main: me traigo el main a mi rama. cuando todo esta funcionando bien lo mezclamos con el main original
 git merge nombre-rama-propia:
 git branch -d nombre-rama que queremos borrar: borrar una rama
+
+
+Reparto de tablas:
+julio -> catalogue, connections
+Yeray -> contact_info, comments
+Theshia -> platform, user
