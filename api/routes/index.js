@@ -2,10 +2,14 @@
 
 
 //importar archivos rutas
-const userRouter = require('./user.router')
+
+const catalogueRouter = require('./catalogue.router')
+const collectionRouter = require('./collection.router')
 
 //definir rutas
 //router.user('./user', userRouter)
+router.use('/catalogue', catalogueRouter)
+router.use('/collection', collectionRouter)
 
 
 //exportar modulo

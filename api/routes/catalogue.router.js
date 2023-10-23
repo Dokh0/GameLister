@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { getAllCatalogue, getOneCatalogue, createCatalogue, updateCatalogue, deleteCatalogue } = require('../controllers/user.controller')
+const { getAllCatalogues, getOneCatalogue, createCatalogue, updateCatalogue, deleteCatalogue } = require('../controllers/catalogue.model')
 
 router.get('/', getAllCatalogues)
 router.get('/:id', getOneCatalogue)
