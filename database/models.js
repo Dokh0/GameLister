@@ -1,4 +1,6 @@
 const User = require('../api/models/user.model')
+const Platform = require('../api/models/platform.model')
+
 
 function setRelations(){
     try {
