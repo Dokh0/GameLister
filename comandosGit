@@ -21,3 +21,16 @@ Reparto de tablas:
 julio -> catalogue, connections
 Yeray -> contact_info, comments
 Theshia -> platform, user
+Contratiempos:
+Al intentar hacer un Post en postman
+{
+    "phone": 665875412,
+    "address":"C/palmeral,52"
+}
+Salia este error: 
+notNull Violation: contact_info.phone cannot be null,
+notNull Violation: contact_info.address cannot be null
+
+Solucion: en la terminal tenemos que matar la conexion, no basta con cerrarla.
+Hay que pulsar boton secundarion del raton en la terminal y nos pone kill terminal, lo ejecutamos e iniciamos de nuevo la conexion.
+Hacemos nuevamente el Post desde el postman y se crea el registo.
