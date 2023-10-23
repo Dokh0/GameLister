@@ -13,4 +13,4 @@ router.use('/collection', collectionRouter)
 
 
 //exportar modulo
-module.exports = router 
+module.exports = router
