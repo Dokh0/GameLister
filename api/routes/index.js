@@ -4,10 +4,13 @@ const userRouter = require('./user.router')
 const platformRouter = require('./platform.router')
 const authRouter = require('./auth.router')
 
+//importar archivos rutas
 
-router.use('/user', userRouter)
-router.use('/platform', platformRouter)
-router.use('/auth', authRouter)
+const catalogueRouter = require('./catalogue.router')
+const collectionRouter = require('./collection.router')
+
+//definir rutas
+//router.user('./user', userRouter)
 
 
 module.exports = router

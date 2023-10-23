@@ -1,10 +1,12 @@
 const User = require('../api/models/user.model')
 const Platform = require('../api/models/platform.model')
-
+const Catalogue = require("../api/models/catalogue.model")
+const Collection = require("../api/models/collection.model")
 
 function setRelations(){
     try {
-        //añadimos las relaciones
+        Collection.hasMany(Catalogue)
+        Catalogue.belongsTo(Collection)
         
         
     } catch (error) {
