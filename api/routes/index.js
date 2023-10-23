@@ -8,9 +8,10 @@ const authRouter = require('./auth.router')
 
 const catalogueRouter = require('./catalogue.router')
 const collectionRouter = require('./collection.router')
+const contact_infoRouter = require('./contact_info.router')
 
 //definir rutas
-//router.user('./user', userRouter)
+router.use('/contact_info', contact_infoRouter)
 
 
 module.exports = router

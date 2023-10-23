@@ -1,3 +1,4 @@
+const Contact_info = require('../api/models/contact_info.model')
 const User = require('../api/models/user.model')
 const Platform = require('../api/models/platform.model')
 const Catalogue = require("../api/models/catalogue.model")
