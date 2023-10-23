@@ -5,7 +5,7 @@ const { getAllCollections, getOneCollection, createCollection, updateCollection,
 router.get('/', getAllCollections)
 router.get('/:id', getOneCollection)
 router.post('/', createCollection)
-router.put('/:id', updateGameCollection)
+router.put('/game/:id', updateGameCollection)
 router.put('/:id', updateCollection)
 router.delete('/:id', deleteCollection)
 
