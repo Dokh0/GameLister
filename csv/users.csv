@@ -1,0 +1,25 @@
+id,name,username,email,password,role
+1,Pepito,Ppito,holasoypepito@gmail.com,holi,user
+3,Julio,Dokh0,julio@gmail.com,$2b$10$/Iip0isVoCaT1PtPuoZvp.gEWCdEiqvRSuZQIUoQQuP8ao.WVEpbS,user
+5,John,elAdmin,yosoyeladmin@gmail.com,$2b$10$R4QZ/CHndrbQZPF657Imr.QnlZac2JBsfGKIe0s9FP6DSfDsvbLTO,admin
+46,John Doe,johndoe123,johndoe123@example.com,$2b$10$kImn2Vyu7j.kCmswr0Re/eRBQmvTOkiAy6HCLdbWzrEwquiXxht3.,user
+47,Alice Smith,alicesmith456,alice.smith@email.com,$2b$10$x/iLZo2gH9oo0GkT.ZoLS.g7os4N5BASuYiODnlrRQ8ybcOKEXg/C,user
+48,Mike Johnson,mikej,mike.j@example.net,$2b$10$JnDfjYUwRFSeGtSdPnjlz.4q0mR/aqDN.Axlx/yW7bwfKTELEqM16,user
+49,Sarah Williams,sarahw,sarah.w@example.org,$2b$10$PheXdvzYcuyvF16yo6F86uSz1JyayPDvNNVUWeNSnb942MJAFc/HO,user
+50,Robert Brown,bobby,robert.b@example.com,$2b$10$U5/NFE94TxY1CC3MT04oSeM2BXQ3dLwzDivdAGb/po9CP/vCl0qr2,user
+51,Emily Davis,emilyd,emily.davis@email.com,$2b$10$Nrb5lNFJNoHkNG/ygL5V2OU5Deap/MfJ1o94bTRGc2Fdh6te8d0FO,user
+52,Olivia Wilson,olivia123,olivia.w@example.org,$2b$10$6ivyKJeGaPYWvPLTuhMa/OIZKsOffUpgiDUOEB0TxHlk/0SxYjfSi,user
+53,James Anderson,james.a,j.anderson@example.com,$2b$10$xiMAgsdXgBHIwamRWFJN2uP9kLTtzTK211xOANZ0uL6jj6Swk1zOK,user
+54,Sophia Robinson,sophiar,sophia@example.net,$2b$10$SWcgGd2dmwoXeAvsPVH4lOAE/nvlwRlu1VXackeUaZhEZxz.JfY7G,user
+55,David Taylor,davidt,david.t@example.org,$2b$10$CG3mht9GuAvWnFnZ8sOLY.AE9sJAgSEc65iWDtADXrxwxpFZIqzMW,user
+56,Ava Martinez,avam,ava.martinez@email.com,$2b$10$HfVVi.2uQW230bMMbIoSpenYRJjapimXG5EzECYDmg0yccJSzrr5a,user
+57,Michael Hernandez,mikeh,michael@example.com,$2b$10$0QNVBVaOWBewGHogCJ1Pa.wlG7islVDMU7.9tuQn0uzodUaVv4Azi,user
+58,Emma Garcia,emmag,emma.g@example.net,$2b$10$mWaR.8xg9jALn8opAYf2k.nMAJkOP0SpDpNSAhAi2MZK7jhXdXP6a,user
+59,Daniel Perez,danielp,d.perez@example.org,$2b$10$t.NsCE9kET26DhNZakAIx.UcXiWeDVEGKbu.EvgmuR9MhuekldWji,user
+60,Mia Flores,miaf,mia@example.com,$2b$10$W/WLM/x0iXgqYaJIZBeG.OtncqVe4vERwmzLtNL.02eyTXhy6wxY2,user
+61,Christopher Ramirez,chrisr,c.ramirez@example.net,$2b$10$A7kf2aVEzvN7wnpOn4Z4ROtBAhctOfGrf/4XgN9mTMeo4pQL522Py,user
+62,Isabella Clark,isabellac,isabella@example.org,$2b$10$q/j.NOChs2OkIe09iUdbV.YCiFnBCAJgt1fHDUX4Ly6xFNqL6dlnS,user
+63,Matthew Lewis,mattl,matt.lewis@email.com,$2b$10$1Rm8.Gk2nE3uT/pDEISguOPf6bt/2JFb9x/PQs7Sn6j0C6WOFL.6y,user
+64,Grace Young,gracey,grace@example.net,$2b$10$xJcjLYdn/R.JzYLv6626W.k7t6L.DgYuOXnuiMfu9aAcS9dr9aUo6,user
+65,Theshia,thisisthebhai,theshia@gmail.com,$2b$10$oZwgQE5XDTHIEkhvZs5IM.ixhtiKMzJv3nbh9CV1VhmTwopqBWeOG,user
+66,Yeray,yerayTj,yeray@gmail.com,$2b$10$/4uHeU/v.A.WfCfk2dVp8u4SuQX5JwIPjctFRkfaZ5epDFD5rPZU6,user
