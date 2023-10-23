@@ -2,8 +2,7 @@
 
 
 //importar archivos rutas
-const userRouter = require('./user.router.js')
-
+const userRouter = require('./user.router')
 
 //definir rutas
 //router.user('./user', userRouter)
