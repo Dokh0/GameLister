@@ -2,10 +2,10 @@
 
 
 //importar archivos rutas
-const userRouter = require('./user.router')
+const contact_infoRouter = require('./contact_info.router')
 
 //definir rutas
-//router.user('./user', userRouter)
+router.use('/contact_info', contact_infoRouter)
 
 
 //exportar modulo

@@ -1,4 +1,4 @@
-const User = require('../api/models/user.model')
+const Contact_info = require('../api/models/contact_info.model')
 
 function setRelations(){
     try {

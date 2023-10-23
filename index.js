@@ -8,7 +8,7 @@ require("dotenv").config()
 async function connectDB() {
     await checkConnection()
     setRelations()
-    await syncModels()
+    await syncModels('alter')
 }
 
 function launchServer() {
@@ -17,7 +17,7 @@ function launchServer() {
         .use(morgan('dev'))
         .use(express.json())
         .use('/api', require('./api/routes/index.js'))
-        .listen(process.env.SRV_PORT, () => {
+        .listen(process.env.PORT, () => {
             console.log("Express server listening on port 3000")
         })
 }
