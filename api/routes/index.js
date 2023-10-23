@@ -5,7 +5,7 @@ const router = require('express').Router()
 const userRouter = require('./user.router')
 
 //definir rutas
-router.user('./user', userRouter)
+//router.user('./user', userRouter)
 
 
 //exportar modulo
