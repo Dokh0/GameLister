@@ -1,4 +1,7 @@
+const Catalogue = require('../models/catalogue.model')
 const Platform = require('../models/platform.model')
+const Platform_catalogue = require ('../models/platform_catalogue.model')
+
 
 async function getAllPlatforms(req, res){
     try {
@@ -33,6 +36,19 @@ async function createPlatform(req, res) {
 	}
 }
 
+async function addGamePlatform(req, res) {
+    try {
+        const platform = await Platform.findByPk(req.body.platformId)
+        const catalogue = await Catalogue.findByPk(req.body.catalogueId)
+
+        const result = await platform.addCatalogue(catalogue)
+
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(402).send(error.message)
+    }
+}
+
 async function updatePlatform(req, res) {
 	try {
 		const [platformExist, platform] = await Platform.update(req.body, {
@@ -62,4 +78,4 @@ async function deletePlatform(req, res){
     }
 }
 
-module.exports = { getAllPlatforms, getOnePlatform, createPlatform, updatePlatform, deletePlatform}
+module.exports = { getAllPlatforms, getOnePlatform, createPlatform, updatePlatform, deletePlatform, addGamePlatform }

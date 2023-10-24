@@ -115,7 +115,7 @@ GET    | /api/platform/:id/catalogue     | NO   | user/admin | Get the catalogue
 GET    | /api/platform/:id/catalogue/:id     | NO   | user | Get the specific catalogue of an specific platform       |                  | {catalogue}
 GET    | /api/platform/year/	            | NO   | user/admin | Get Platforms by Year       |  `year`                                 | [{platform}]
 POST   | /api/platform            | YES   | admin |  Create a new platform        | `name`,`version`, `year` | {platform}  | {message: 'Console created' platform: platform}
-POST   | /api/platform/:id/catalogue    | YES   | admin | Create the catalogue of an specific platform       |                  | [{catalogue}]
+POST   | /api/platform/:id/catalogue/:id    | YES   | admin | Create the catalogue of an specific platform       |                  | [{catalogue}]
 PUT    | /api/platform/:id     | YES   | admin |  Update an specific platform     | `name`,`version`, `year` | {platform}  | {message: 'Platfom updated'}
 DELETE | /api/platform/:id    | YES   | admin | Delete one platform         |                                                   | {message: 'Platform deleted'}
 
