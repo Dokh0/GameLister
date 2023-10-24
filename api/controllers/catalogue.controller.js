@@ -37,6 +37,23 @@ async function getAllGamesGenre(req, res) {
     }
 }
 
+async function getAllGamesYear(req, res) {
+    const year = req.query.year;
+    if (!year) {
+        return res.status(400).json({ error: 'Year parameter is required' });
+    }
+    try {
+        const games = await Catalogue.findAll({
+            where: {
+                year: year
+            }
+        });
+        res.status(200).json(games);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
 async function createCatalogue(req, res) {
     console.log(req.body)
     try {
@@ -70,4 +87,4 @@ async function deleteCatalogue(req, res) {
     }
 }
 
-module.exports = { getOneCatalogue, getAllCatalogues, createCatalogue, updateCatalogue, deleteCatalogue, getAllGamesGenre }
+module.exports = { getOneCatalogue, getAllCatalogues, createCatalogue, updateCatalogue, deleteCatalogue, getAllGamesGenre, getAllGamesYear }

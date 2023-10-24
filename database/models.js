@@ -10,7 +10,7 @@ const Platform_catalogue = require('../api/models/platform_catalogue.model')
 function setRelations(){
     try {
         User.hasOne(Contact_info, {
-            foreignKey: 'user_id'
+            foreignKey: 'userId'
         })
         Contact_info.belongsTo(User)
 
