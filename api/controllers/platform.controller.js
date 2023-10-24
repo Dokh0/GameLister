@@ -41,6 +41,23 @@ async function getplatformCatalogue (req, res) {
     }
 }
 
+async function getAllPlatformYear(req, res) {
+    const year = req.query.year;
+    if (!year) {
+        return res.status(400).json({ error: 'Year parameter is required' });
+    }
+    try {
+        const platform = await Platform.findAll({
+            where: {
+                year: year
+            }
+        });
+        res.status(200).json(platform);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
 async function createPlatform(req, res) {
 	try {
         const [platformExist, platform] = await Platform.create(req.body)
@@ -97,4 +114,4 @@ async function deletePlatform(req, res){
     }
 }
 
-module.exports = { getAllPlatforms, getOnePlatform, getplatformCatalogue, createPlatform, updatePlatform, deletePlatform, addGamePlatform }
+module.exports = { getAllPlatforms, getOnePlatform, getplatformCatalogue, getAllPlatformYear, createPlatform, updatePlatform, deletePlatform, addGamePlatform }
