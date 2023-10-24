@@ -86,7 +86,7 @@ async function updateUser(req, res) {
             },
         })
         if (userExist !== 0) {
-            return res.status(200).json({ message: 'User updated', user: user })
+            return res.status(200).json({ message: 'User updated' })
         } else {
             return res.status(404).send('User not found')
         }

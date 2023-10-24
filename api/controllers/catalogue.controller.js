@@ -4,7 +4,7 @@ async function getOneCatalogue(req, res) {
     console.log({ body: req.body, params: req.params, query: req.query })  //consultar lo que nos llega en la request
     try {
         const catalogue = await Catalogue.findByPk(req.params.id)
-        if (!catalogue) { res.status(500).send("Catalogue not found") }
+        if (!catalogue) { res.status(500).send('Catalogue not found') }
         res.status(200).json(catalogue)
     } catch (error) {
         res.status(402).send(error.message)
@@ -24,7 +24,7 @@ async function createCatalogue(req, res) {
     console.log(req.body)
     try {
         const catalogue = await Catalogue.create(req.body)
-        res.status(200).send("Catalogue created")
+        res.status(200).send('Catalogue created')
 
     } catch (error) {
         res.status(402).send(error.message)

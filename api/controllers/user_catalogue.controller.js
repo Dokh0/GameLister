@@ -73,7 +73,7 @@ async function deleteOneMyCatalogue(req, res) {
     try {
         const my_catalogue = await User_catalogue.findByPk(req.params.id)
         if (my_catalogue) {
-            return res.status(200).json(my_catalogue)
+            return res.status(200).send('Game deleted')
         } else {
             return res.status(404).send('Game not found in your catalogue')
         }
@@ -90,7 +90,7 @@ async function adminAddUserCatalogue(req, res) {
             await user.addCatalogue(my_catalogue, {through: req.body})
             res.status(200).json(my_catalogue) 
         } else {
-            return res.status(404).send("No permissions allowed ")
+            return res.status(404).send('No permissions allowed')
         }
         
     } catch (error) {
@@ -103,5 +103,7 @@ module.exports = {
     getMyUserCatalogue,
     addUserCatalogue,
     getOneMyCatalogue, 
+    deleteOneMyCatalogue,
     adminAddUserCatalogue
+
 }
