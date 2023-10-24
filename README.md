@@ -75,16 +75,14 @@ DELETE | /api/user/:ownerid   | YES           | user | Delete my user       |   
 DELETE | /api/user/:id   | YES           | admin | Delete user by id       |                                              | { message: 'Profile deleted', user: user }
 PUT    | /api/user/:ownerid   | YES   | user/admin | Edit my profile      |       `name`, `username`, `email`, `password`           | {message: 'User updated'}
 PUT    | /api/user/:id   | YES   | admin | Edit user id profile      |       `name`, `username`, `email`, `password`           | {message: 'User updated', user: user}
-POST   | /api/user/:ownerid/comments    | YES   | user |  Post a comment    | `query params`           | {comment}
 
 
 ### My_catalogue Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /api/my_catalogue   | YES   | admin |  Get all my catalogue     | `query params`                              | [{my_catalogue}]
-GET    | /api/my_catalogue/user/:id    | YES   | admin |  Get user catalogue by id     | ``query params`                      | {my_catalogue}
-GET    | /api/my_catalogue/:id	  | YES   | user | Get my catalogues owned      |  `query params`     | [{catalogue}]
+GET    | /api/my_catalogue   | YES   | user/admin |  Get my catalogue     | `query params`                              | [{my_catalogue}]
+GET    | /api/my_catalogue/:id    | YES   | user/admin |  Get user game by id     | ``query params`                      | {my_catalogue}
 PUT    | /api/my_catalogue/:id    | YES   | user/admin | Edit my catalogue by id (game status and ownership)      |     `Status`, `Owned`   | {message: 'My catalogue updated'}
 DELETE | /api/my_catalogue/:id   | YES   | user/admin  | Delete my catalogue by id (game)          |                        | { message: 'Game deleted' }
 

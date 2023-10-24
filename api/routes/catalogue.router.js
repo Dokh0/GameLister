@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { checkAuth, checkAdmin } = require('../middleware')
 
-const { getAllCatalogues, getOneCatalogue, createCatalogue, updateCatalogue, deleteCatalogue } = require('../controllers/catalogue.model')
+const { getAllCatalogues, getOneCatalogue, createCatalogue, updateCatalogue, deleteCatalogue } = require('../controllers/catalogue.controller')
 
 router.get('/', getAllCatalogues)
 router.get('/:id', getOneCatalogue)

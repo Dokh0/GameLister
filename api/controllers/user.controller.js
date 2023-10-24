@@ -1,5 +1,6 @@
 const User = require('../models/user.model')
 
+
 async function getAllUser(req, res) {
     try {
         const user = await User.findAll()
@@ -110,6 +111,8 @@ async function deleteUser(req, res) {
         return res.status(500).send(error.message)
     }
 }
+
+
 
 module.exports = {
     getAllUser,

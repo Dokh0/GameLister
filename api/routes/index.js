@@ -1,6 +1,7 @@
 const router = require('express').Router()
 
 const userRouter = require('./user.router')
+const userCatalogueRouter = require('./user_catalogue.router')
 const platformRouter = require('./platform.router')
 const authRouter = require('./auth.router')
 const contact_infoRouter = require('./contact_info.router')
@@ -9,6 +10,7 @@ const catalogueRouter = require('./catalogue.router')
 const collectionRouter = require('./collection.router')
 
 router.use('/user', userRouter)
+router.use('/my_catalogue', userCatalogueRouter)
 router.use('/contact_info', contact_infoRouter)
 router.use('/comment', commentRouter)
 router.use('/auth', authRouter)
