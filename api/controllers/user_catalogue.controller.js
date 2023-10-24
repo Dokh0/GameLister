@@ -1,13 +1,42 @@
 const User = require('../models/user.model')
 const Catalogue = require('../models/catalogue.model')
+const User_catalogue = require('../models/user_catalogue.model')
 
 async function getAllUserCatalogue(req, res) {
     try {
-        const userCatalogue = await User_catalogue.findAll()
-        if (userCatalogue) {
-            return res.status(200).json(userCatalogue)
+      const my_catalogue = await User.findAll({
+        include: {
+          model: Catalogue,
+          attributes: ['title'],
+          through: { attributes: ['favorite', 'status', 'owned'] }, 
+        },
+        attributes: ['name'],  
+      })
+  
+      if (my_catalogue) {
+        return res.status(200).json(my_catalogue)
+      } else {
+        return res.status(404).send('No permissions allowed')
+      }
+    } catch (error) {
+      res.status(500).send(error.message)
+    }
+  }
+
+async function getMyUserCatalogue (req, res) {
+    try {
+        const user = await User.findByPk(res.locals.user.id, {
+            include: {
+                model: Catalogue,
+                attributes: ['title'],
+                through: { attributes: ['favorite', 'status', 'owned'] }, 
+              },
+              attributes: ['name'],  
+        })
+        if (user) {
+            return res.status(200).json(user)
         } else {
-            return res.status(404).send('No permissions allowed')
+            return res.status(404).send('Not found')
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -40,6 +69,19 @@ async function getOneMyCatalogue(req, res) {
     }
 }
 
+async function deleteOneMyCatalogue(req, res) {
+    try {
+        const my_catalogue = await User_catalogue.findByPk(req.params.id)
+        if (my_catalogue) {
+            return res.status(200).json(my_catalogue)
+        } else {
+            return res.status(404).send('Game not found in your catalogue')
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
+
 async function adminAddUserCatalogue(req, res) {
     try {
         if (res.locals.user.role === 'admin') {
@@ -58,6 +100,7 @@ async function adminAddUserCatalogue(req, res) {
 
 module.exports = {
     getAllUserCatalogue,
+    getMyUserCatalogue,
     addUserCatalogue,
     getOneMyCatalogue, 
     adminAddUserCatalogue

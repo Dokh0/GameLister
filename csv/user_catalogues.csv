@@ -8,6 +8,7 @@ favorite,status,owned,catalogueId,userId
 1,playing,0,11,55
 1,playing,0,11,58
 1,played,0,12,3
+1,planned,0,12,65
 0,planned,0,15,54
 0,planned,0,15,61
 1,playing,0,17,58
@@ -22,6 +23,7 @@ favorite,status,owned,catalogueId,userId
 0,played,0,23,60
 0,playing,0,23,61
 1,playing,0,28,3
+1,planned,0,38,46
 0,played,0,39,60
 1,playing,1,40,65
 0,planned,0,42,62
