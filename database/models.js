@@ -9,9 +9,7 @@ const Platform_catalogue = require('../api/models/platform_catalogue.model')
 
 function setRelations(){
     try {
-        User.hasOne(Contact_info, {
-            foreignKey: 'user_id'
-        })
+        User.hasOne(Contact_info)
         Contact_info.belongsTo(User)
 
         Collection.hasMany(Catalogue)
@@ -23,7 +21,7 @@ function setRelations(){
         Catalogue.hasMany(Comment)
         Comment.belongsTo(Catalogue)
 
-        Catalogue.belongsToMany(Platform, { through: Platform_catalogue})
+        Catalogue.belongsToMany(Platform, { through: Platform_catalogue })
         Platform.belongsToMany(Catalogue, { through: Platform_catalogue })
 
         Catalogue.belongsToMany(User, { through: User_catalogue })
