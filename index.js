@@ -8,7 +8,7 @@ require("dotenv").config()
 async function connectDB() {
     await checkConnection()
     setRelations()
-    await syncModels(/*'alter'*/)
+    await syncModels('alter')
 }
 
 function launchServer() {
