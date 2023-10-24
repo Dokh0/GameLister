@@ -55,12 +55,12 @@ The Authentication flow for the application is:
 
 ## Endpoints
 
-### User Signup/Login
+###  Signup/Login
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
-POST   | /auth/signup     | -     | user | User Signup              | `name`, `username`, `email`, `password` | { token: `token` }
-POST   | /auth/login      | -     | user | User Login               | `email`, `password`                             | { token: `token` }
+POST   | /auth/signup     | -     | user/admin | User Signup              | `name`, `username`, `email`, `password` | { token: `token` }
+POST   | /auth/login      | -     | user/admin | User Login               | `email`, `password`                             | { token: `token` }
 
 
 ### User Endpoints 
