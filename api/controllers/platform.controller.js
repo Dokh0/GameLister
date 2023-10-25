@@ -15,10 +15,46 @@ async function getAllPlatforms(req, res){
 async function getOnePlatform(req, res) {
     try {
         const platform = await Platform.findByPk(req.params.id)
-        if (!platform){ res.status(500).send("Consola no encontrada")}
+        if (!platform){ res.status(500).send('Consola no encontrada')}
         res.status(200).json(platform)
     } catch (error) {
         res.status(402).send(error.message)
+    }
+}
+
+async function getplatformCatalogue (req, res) {
+    try {
+        const platform = await Platform.findByPk(req.query.id, {
+            include: {
+                model: Catalogue,
+                attributes: ['title'], 
+              },
+              attributes: ['name'],  
+        })
+        if (platform) {
+            return res.status(200).json(platform)
+        } else {
+            return res.status(404).send('Catalogue not found')
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
+
+async function getAllPlatformYear(req, res) {
+    const year = req.query.year;
+    if (!year) {
+        return res.status(400).json({ error: 'Year parameter is required' });
+    }
+    try {
+        const platform = await Platform.findAll({
+            where: {
+                year: year
+            }
+        });
+        res.status(200).json(platform);
+    } catch (error) {
+        res.status(500).send(error.message);
     }
 }
 
@@ -72,10 +108,10 @@ async function deletePlatform(req, res){
         const platform = await Platform.destroy({
             where: { id: req.params.id },
         })
-        res.status(200).json({message: "Consola eliminada", platform: platform})
+        res.status(200).json({message: 'Consola eliminada', platform: platform})
     } catch (error) {
         res.status(402).send(error.message)
     }
 }
 
-module.exports = { getAllPlatforms, getOnePlatform, createPlatform, updatePlatform, deletePlatform, addGamePlatform }
+module.exports = { getAllPlatforms, getOnePlatform, getplatformCatalogue, getAllPlatformYear, createPlatform, updatePlatform, deletePlatform, addGamePlatform }

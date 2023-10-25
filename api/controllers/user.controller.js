@@ -1,5 +1,6 @@
 const User = require('../models/user.model')
 
+
 async function getAllUser(req, res) {
     try {
         const user = await User.findAll()
@@ -38,44 +39,6 @@ async function getProfile(req, res) {
     }
 }
 
-// //lazyLoading
-// async function getOneUserLazy(req, res) {
-//     try {
-//         const user = await User.findByPk(req.params.id)
-//         const movie = await user.getMovies();
-//         res.send({ user, movie });//envia la respuesta al postman
-//         if (user) {
-//             return res.status(200).json(user)
-//         } else {
-//             return res.status(404).send('User not found')
-//         }
-//     } catch (error) {
-//         res.status(500).send(error.message)
-//     }
-// }
-
-// //eagerLoading
-// async function getOneUserEager(req, res) {
-//     try {
-//         const movie = await Movie.findByPk(req.params.id)
-//         const user = await User.findByPk(req.params.id, {
-//             include: [{
-//                 model: Movie,
-//                 through: { attributes: [] }
-//             }]
-//         })
-
-
-//         if (user) {
-//             return res.status(200).json(user)
-//         } else {
-//             return res.status(404).send('User not found')
-//         }
-//     } catch (error) {
-//         res.status(500).send(error.message)
-//     }
-// }
-
 async function updateUser(req, res) {
     try {
         const [userExist, user] = await User.update(req.body, {
@@ -85,7 +48,7 @@ async function updateUser(req, res) {
             },
         })
         if (userExist !== 0) {
-            return res.status(200).json({ message: 'User updated', user: user })
+            return res.status(200).json({ message: 'User updated' })
         } else {
             return res.status(404).send('User not found')
         }
@@ -110,6 +73,8 @@ async function deleteUser(req, res) {
         return res.status(500).send(error.message)
     }
 }
+
+
 
 module.exports = {
     getAllUser,
