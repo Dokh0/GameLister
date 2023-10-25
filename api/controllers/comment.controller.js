@@ -32,10 +32,12 @@ async function getOneComment(req, res) {
 async function getOneCommentbyGame(req, res) {
     
     try {
+        
         const game = await Catalogue.findOne({
             where: req.query,
             include: Comment
         })
+        console.log(game)
         if (game) {
             return res.status(200).json(game.comments)
         } else {
