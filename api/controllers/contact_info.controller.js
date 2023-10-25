@@ -62,18 +62,39 @@ async function createContact_info(req, res) {
     }
 }
 
+// async function addContact_info_user(req, res) {
+//     console.log(req.params)
+//     const contact_info = await Contact_info.findByPk(req.params.contact_infoId)
+//     const user = await User.findByPk(req.params.userId)
+
+//     try {
+//        await contact_info.setUser(user)
+//         return res.status(200).json({ message: 'Contact_info for user added', contact_info: contact_info })
+//     } catch (error) {
+//         res.status(500).send(error.message)
+//     }
+// }
+
 async function addContact_info_user(req, res) {
-    console.log(req.params)
-    const contact_info = await Contact_info.findByPk(req.params.contact_infoId)
-    const user = await User.findByPk(req.params.userId)
+    const { userId, contact_info } = req.body;
 
     try {
-       await contact_info.setUser(user)
-        return res.status(200).json({ message: 'Contact_info for user added', contact_info: contact_info })
+        const user = await User.findByPk(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        const contact_info = await Contact_info.findByPk(req.body.contact_info)
+        // Aquí asumo que el modelo Contact_info tiene un método create para crear una nueva entrada en la base de datos.
+        await contact_info.setUser(user)
+
+
+        return res.status(200).json({ message: 'Contact_info for user added' });
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error.message);
     }
 }
+
 
 
 async function updateContact_info(req, res) {
