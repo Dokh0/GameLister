@@ -21,9 +21,9 @@ async function getAllCatalogues(req, res) {
 }
 
 async function getAllGamesGenre(req, res) {
-    const genre = req.query.genre;
+    const genre = req.query.genre
     if (!genre) {
-        return res.status(400).json({ error: 'Genre parameter is required' });
+        return res.status(400).json({ error: 'Genre parameter is required' })
     }
     try {
         const games = await Catalogue.findAll({
@@ -31,9 +31,9 @@ async function getAllGamesGenre(req, res) {
                 genre: genre
             }
         });
-        res.status(200).json(games);
+        res.status(200).json(games)
     } catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error.message)
     }
 }
 
