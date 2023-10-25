@@ -1,8 +1,11 @@
 const Comment = require('../models/comment.model')
+const Catalogue = require('../models/catalogue.model')
 
 async function getAllComment(req, res) {
     try {
-        const comment = await Comment.findAll({ paranoid: false })
+        const comment = await Comment.findAll({
+            where: req.query
+        } )
         if (comment) {
             return res.status(200).json(comment)
         } else {
@@ -18,6 +21,23 @@ async function getOneComment(req, res) {
         const comment = await Comment.findByPk(req.params.id)
         if (comment) {
             return res.status(200).json(comment)
+        } else {
+            return res.status(404).send('Comment not found')
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
+
+async function getOneCommentbyGame(req, res) {
+    
+    try {
+        const game = await Catalogue.findOne({
+            where: req.query,
+            include: Comment
+        })
+        if (game) {
+            return res.status(200).json(game.comments)
         } else {
             return res.status(404).send('Comment not found')
         }
@@ -78,4 +98,5 @@ module.exports = {
     createComment,
     updateComment,
     deleteComment,
+    getOneCommentbyGame,
 }
