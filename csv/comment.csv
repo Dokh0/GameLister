@@ -1,16 +1,20 @@
-id,comment
-,Super Mario Odyssey: Excelente juego de plataformas con una historia cautivadora y gráficos impresionantes.
-,Call of Duty: Modern Warfare: Una experiencia de disparos en primera persona que te mantendrá al borde de tu asiento todo el tiempo.
-,The Witcher 3: Wild Hunt: Un juego de rol épico con un mundo expansivo y misiones emocionantes que te mantendrán entretenido durante horas.
-,Assassin's Creed Valhalla: La última entrega de esta franquicia icónica no decepciona, con gráficos mejorados y una jugabilidad fluida.
-,Civilization VI: Un juego de estrategia adictivo que desafiará tu mente y tus habilidades tácticas.
-,FIFA 22: Un juego de deportes emocionante que captura la emoción y la competencia del campo en la pantalla.
-,Uncharted 4: A Thief's End: La narrativa emocionante de este juego de aventuras te llevará a través de giros inesperados y momentos emocionantes.
-,The Sims 4: Un simulador realista que te sumerge en la vida cotidiana de un personaje único con desafíos emocionantes.
-,Forza Horizon 4: Este juego de carreras ofrece gráficos impresionantes y una jugabilidad emocionante que te mantendrá pegado a la pantalla.
-,Resident Evil Village: Un juego de terror psicológico que te hará temblar con su ambiente inquietante y sus sorpresas terroríficas.
-,Overcooked 2: Una aventura multijugador que fomenta la cooperación y la estrategia en un mundo repleto de desafíos y sorpresas.
-,Half-Life: Alyx: Una experiencia única de realidad virtual que te transporta a mundos imaginarios con una inmersión total.
-,Street Fighter V: Un juego de lucha emocionante que presenta personajes icónicos y movimientos especiales impresionantes.
-,Portal 2: Este juego de rompecabezas desafía tu lógica y te mantiene enganchado con sus desafíos cada vez más difíciles.
-,God of War: Una emocionante mezcla de acción y aventura que te sumerge en un mundo de mitos y leyendas en constante evolución.
+id,comment,userId,catalogueId
+1,Un juego de lucha emocionante que presenta personajes icónicos y movimientos especiales impresionantes.,1,1
+2,Una emocionante mezcla de acción y aventura que te sumerge en un mundo de mitos y leyendas en constante evolución.,3,2
+3, Un juego de deportes emocionante que captura la emoción y la competencia del campo en la pantalla.,5,3
+5,Una aventura multijugador que fomenta la cooperación y la estrategia en un mundo repleto de desafíos y sorpresas.,46,4
+6,Excelente juego de plataformas con una historia cautivadora y gráficos impresionantes.,47,5
+7,Una experiencia de disparos en primera persona que te mantendrá al borde de tu asiento todo el tiempo.,48,6
+8,Un juego de rol épico con un mundo expansivo y misiones emocionantes que te mantendrán entretenido durante horas.,49,7
+9,La última entrega de esta franquicia icónica no decepciona,50,8
+10,Un juego de estrategia adictivo que desafiará tu mente y tus habilidades tácticas.,51,9
+11, Un juego de deportes emocionante que captura la emoción y la competencia del campo en la pantalla.,52,10
+12,La narrativa emocionante de este juego de aventuras te llevará a través de giros inesperados y momentos emocionantes.,53,11
+13,Un simulador realista que te sumerge en la vida cotidiana de un personaje único con desafíos emocionantes.,54,12
+14,Este juego de carreras ofrece gráficos impresionantes y una jugabilidad emocionante que te mantendrá pegado a la pantalla.,55,13
+15,Un juego de terror psicológico que te hará temblar con su ambiente inquietante y sus sorpresas terroríficas.,56,14
+16,Una aventura multijugador que fomenta la cooperación y la estrategia en un mundo repleto de desafíos y sorpresas.,57,15
+17,Una experiencia única de realidad virtual que te transporta a mundos imaginarios con una inmersión total.,58,16
+18,Un juego de lucha emocionante que presenta personajes icónicos y movimientos especiales impresionantes.,59,17
+19,Este juego de rompecabezas desafía tu lógica y te mantiene enganchado con sus desafíos cada vez más difíciles.,60,18
+20,Una emocionante mezcla de acción y aventura que te sumerge en un mundo de mitos y leyendas en constante evolución.,61,19
