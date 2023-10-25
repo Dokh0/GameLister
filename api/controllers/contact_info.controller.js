@@ -34,7 +34,7 @@ async function getOwmProfile(req, res) {
                 userId: res.locals.user.id
             }
         })
-
+        console.log(contact)
         /*  Eager Loading 
         const user = await User.findByPk(res.loclas.user.id,{
             include: Contact_info
