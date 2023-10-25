@@ -2,7 +2,7 @@ const Collection = require('../models/collection.model')
 const Catalogue = require('../models/catalogue.model')
 
 async function getOneCollection(req, res) {
-    console.log({ body: req.body, params: req.params, query: req.query })  //consultar lo que nos llega en la request
+    console.log({ body: req.body, params: req.params, query: req.query })  
     try {
         const collection = await Collection.findByPk(req.params.id)
         if (!collection) { res.status(500).send("Collection not found") }
