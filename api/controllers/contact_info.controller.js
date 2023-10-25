@@ -3,7 +3,7 @@ const User = require('../models/user.model')
 
 async function getAllContact_info(req, res) {
     try {
-        const contact_info = await Contact_info.findAll({ paranoid: false })
+        const contact_info = await Contact_info.findAll()
         if (contact_info) {
             return res.status(200).json(contact_info)
         } else {

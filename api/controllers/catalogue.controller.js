@@ -81,7 +81,7 @@ async function deleteCatalogue(req, res) {
         const catalogue = await Catalogue.destroy({
             where: { id: req.params.id },
         })
-        res.status(200).json({ text: "Catalogue deleted", catalogue: catalogue })
+        res.status(200).json({ message: 'Catalogue deleted', catalogue: catalogue })
     } catch (error) {
         res.status(402).send(error.message)
     }

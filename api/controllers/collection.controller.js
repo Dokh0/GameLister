@@ -5,7 +5,7 @@ async function getOneCollection(req, res) {
     console.log({ body: req.body, params: req.params, query: req.query })  
     try {
         const collection = await Collection.findByPk(req.params.id)
-        if (!collection) { res.status(500).send("Collection not found") }
+        if (!collection) { res.status(500).send('Collection not found') }
         res.status(200).json(collection)
     } catch (error) {
         res.status(402).send(error.message)
@@ -25,7 +25,7 @@ async function createCollection(req, res) {
     console.log(req.body)
     try {
         const collection = await Collection.create(req.body)
-        res.status(200).send("Collection created")
+        res.status(200).send('Collection created')
 
     } catch (error) {
         res.status(402).send(error.message)
@@ -60,7 +60,7 @@ async function deleteCollection(req, res) {
         const collection = await Collection.destroy({
             where: { id: req.params.id },
         })
-        res.status(200).json({ text: "Collection deleted", collection: collection })
+        res.status(200).json({ message: 'Collection deleted', collection: collection })
     } catch (error) {
         res.status(402).send(error.message)
     }
