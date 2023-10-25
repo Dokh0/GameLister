@@ -58,7 +58,6 @@ async function createContact_info(req, res) {
 }
 
 async function addContact_info_user(req, res) {
-    console.log(req.params)
     const contact_info = await Contact_info.findByPk(req.params.contact_infoId)
     const user = await User.findByPk(req.params.userId)
 
