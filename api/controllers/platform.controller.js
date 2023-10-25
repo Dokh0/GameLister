@@ -15,7 +15,7 @@ async function getAllPlatforms(req, res){
 async function getOnePlatform(req, res) {
     try {
         const platform = await Platform.findByPk(req.params.id)
-        if (!platform){ res.status(500).send('Consola no encontrada')}
+        if (!platform){ res.status(500).send('Platform not found')}
         res.status(200).json(platform)
     } catch (error) {
         res.status(402).send(error.message)
@@ -34,7 +34,7 @@ async function getplatformCatalogue (req, res) {
         if (platform) {
             return res.status(200).json(platform)
         } else {
-            return res.status(404).send('Catalogue not found')
+            return res.status(404).send('Platform catalogue not found')
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -62,10 +62,10 @@ async function createPlatform(req, res) {
 	try {
         const [platformExist, platform] = await Platform.create(req.body)
         if (!platformExist) {
-			return res.status(200).json({ message: 'Console created', platform: platform })
+			return res.status(200).json({ message: 'Platorm created', platform: platform })
         
         } else {
-			return res.status(404).send('Console is already in the Database')
+			return res.status(404).send('Platform is already in the Database')
 		}
 	} catch (error) {
 		return res.status(500).send(error.message)
@@ -94,9 +94,9 @@ async function updatePlatform(req, res) {
 			},
 		})
         if (platformExist !== 0) {
-			return res.status(200).json({ message: 'Console updated', platform: platform })
+			return res.status(200).json({ message: 'Platform updated', platform: platform })
 		} else {
-			return res.status(404).send('Console not found')
+			return res.status(404).send('Platform not found')
 		}
 	} catch (error) {
 		return res.status(500).send(error.message)
@@ -108,7 +108,7 @@ async function deletePlatform(req, res){
         const platform = await Platform.destroy({
             where: { id: req.params.id },
         })
-        res.status(200).json({message: 'Consola eliminada', platform: platform})
+        res.status(200).json({message: 'Platform deleted', platform: platform})
     } catch (error) {
         res.status(402).send(error.message)
     }

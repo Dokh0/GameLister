@@ -32,7 +32,7 @@ async function getProfile(req, res) {
     console.log(res.locals.user)
     try {
         const user = await User.findByPk(res.locals.user.id)
-        if (!user) { res.status(500).send("Usuario no encontrado") }
+        if (!user) { res.status(500).send('User not found') }
         res.status(200).json(user)
     } catch (error) {
         res.status(402).send(error.message)
@@ -81,7 +81,5 @@ module.exports = {
     getOneUser,
     getProfile,
     updateUser,
-    deleteUser,
-    // getOneUserLazy,
-    // getOneUserEager,
+    deleteUser
 }

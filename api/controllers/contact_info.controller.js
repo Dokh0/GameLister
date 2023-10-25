@@ -7,7 +7,7 @@ async function getAllContact_info(req, res) {
         if (contact_info) {
             return res.status(200).json(contact_info)
         } else {
-            return res.status(404).send('No contact_info found')
+            return res.status(404).send('No Contact Info found')
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -20,7 +20,7 @@ async function getOneContact_info(req, res) {
         if (contact_info) {
             return res.status(200).json(contact_info)
         } else {
-            return res.status(404).send('Contact_info not found')
+            return res.status(404).send('Contact Info not found')
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -35,15 +35,10 @@ async function getOwmProfile(req, res) {
             }
         })
         console.log(contact)
-        /*  Eager Loading 
-        const user = await User.findByPk(res.loclas.user.id,{
-            include: Contact_info
-        }) */  
-
         if (contact) {
             return res.status(200).json(contact)
         } else {
-            return res.status(404).send('Contact_info not found')
+            return res.status(404).send('Contact Info not found')
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -56,7 +51,7 @@ async function createContact_info(req, res) {
             phone: req.body.phone,
             address: req.body.address
         })
-        return res.status(200).json({ message: 'Contact_info created', contact_info: contact_info })
+        return res.status(200).json({ message: 'Contact Info created', contact_info: contact_info })
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -69,12 +64,11 @@ async function addContact_info_user(req, res) {
 
     try {
        await contact_info.setUser(user)
-        return res.status(200).json({ message: 'Contact_info for user added', contact_info: contact_info })
+        return res.status(200).json({ message: 'User Contact Info added', contact_info: contact_info })
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
-
 
 async function updateContact_info(req, res) {
     try {
@@ -85,9 +79,9 @@ async function updateContact_info(req, res) {
             },
         })
         if (contact_infoExist !== 0) {
-            return res.status(200).json({ message: 'Contact_info updated', contact_info: contact_info })
+            return res.status(200).json({ message: 'Contact Info updated', contact_info: contact_info })
         } else {
-            return res.status(404).send('Contact_info not found')
+            return res.status(404).send('Contact Info not found')
         }
     } catch (error) {
         return res.status(500).send(error.message)
@@ -102,9 +96,9 @@ async function deleteContact_info(req, res) {
             },
         })
         if (contact_info) {
-            return res.status(200).json('Contact_info deleted')
+            return res.status(200).json('Contact Info deleted')
         } else {
-            return res.status(404).send('Contact_info not found')
+            return res.status(404).send('Contact Info not found')
         }
     } catch (error) {
         return res.status(500).send(error.message)
