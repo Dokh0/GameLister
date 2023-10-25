@@ -10,4 +10,6 @@ router.post('/', checkAuth, createComment)//todos pueden crear comentarios
 router.put('/:id', checkAuth, updateComment)//todos pueden modificar comentarios
 router.delete('/:id', checkAuth, checkAdmin, deleteComment)//solo el admin puede borrar comentarios
 
+
+
 module.exports = router
