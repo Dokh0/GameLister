@@ -10,6 +10,7 @@ const Platform = sequelize.define(
         version: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
     },
         year: {
             type: DataTypes.INTEGER,

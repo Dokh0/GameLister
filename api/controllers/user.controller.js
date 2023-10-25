@@ -1,5 +1,6 @@
 const User = require('../models/user.model')
 
+
 async function getAllUser(req, res) {
     try {
         const user = await User.findAll()
@@ -31,60 +32,12 @@ async function getProfile(req, res) {
     console.log(res.locals.user)
     try {
         const user = await User.findByPk(res.locals.user.id)
-        if (!user) { res.status(500).send("Usuario no encontrado") }
+        if (!user) { res.status(500).send('User not found') }
         res.status(200).json(user)
     } catch (error) {
         res.status(402).send(error.message)
     }
 }
-
-// //lazyLoading
-// async function getOneUserLazy(req, res) {
-//     try {
-//         const user = await User.findByPk(req.params.id)
-//         const movie = await user.getMovies();
-//         res.send({ user, movie });//envia la respuesta al postman
-//         if (user) {
-//             return res.status(200).json(user)
-//         } else {
-//             return res.status(404).send('User not found')
-//         }
-//     } catch (error) {
-//         res.status(500).send(error.message)
-//     }
-// }
-
-// //eagerLoading
-// async function getOneUserEager(req, res) {
-//     try {
-//         const movie = await Movie.findByPk(req.params.id)
-//         const user = await User.findByPk(req.params.id, {
-//             include: [{
-//                 model: Movie,
-//                 through: { attributes: [] }
-//             }]
-//         })
-
-
-//         if (user) {
-//             return res.status(200).json(user)
-//         } else {
-//             return res.status(404).send('User not found')
-//         }
-//     } catch (error) {
-//         res.status(500).send(error.message)
-//     }
-// }
-
-
-// async function createUser(req, res) {
-//     try {
-//         const user = await User.create(req.body)
-//         return res.status(200).json({ message: 'User created', user: user })
-//     } catch (error) {
-//         res.status(500).send(error.message)
-//     }
-// }
 
 async function updateUser(req, res) {
     try {
@@ -95,7 +48,7 @@ async function updateUser(req, res) {
             },
         })
         if (userExist !== 0) {
-            return res.status(200).json({ message: 'User updated', user: user })
+            return res.status(200).json({ message: 'User updated' })
         } else {
             return res.status(404).send('User not found')
         }
@@ -121,13 +74,12 @@ async function deleteUser(req, res) {
     }
 }
 
+
+
 module.exports = {
     getAllUser,
     getOneUser,
     getProfile,
-    // createUser,
     updateUser,
-    deleteUser,
-    // getOneUserLazy,
-    // getOneUserEager,
+    deleteUser
 }

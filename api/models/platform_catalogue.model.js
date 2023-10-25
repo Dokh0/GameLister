@@ -1,3 +1,4 @@
+//No necesaria por ahora. Futuras mejoras.
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../../database/index')
 

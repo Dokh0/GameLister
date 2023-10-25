@@ -55,51 +55,52 @@ The Authentication flow for the application is:
 
 ## Endpoints
 
-### User Signup/Login
+###  Signup/Login
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
-POST   | /auth/signup     | -     | user | User Signup              | `name`, `username`, `email`, `password` | { token: `token` }
-POST   | /auth/login      | -     | user | User Login               | `email`, `password`                             | { token: `token` }
+POST   | /auth/signup     | -     | user/admin | User Signup              | `name`, `username`, `email`, `password` | { token: `token` }
+POST   | /auth/login      | YES     | user/admin | User Login               | `email`, `password`                             | { token: `token` }
 
 
 ### User Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /api/user/profile  | YES   | user/admin | Get my user       |  `query params`                                        | {user}
-GET    | /api/users      | YES   | admin | Get my all users       |  `query params`                                   | [{users}]
-GET    | /api/user/:id   | YES   | admin | Get user id     |  `query params`                                        | {user}
-GET    | /api/user/:ownerid/comments    | YES   | user |  See all my comments    | `query params`           | [{comment}]
-DELETE | /api/user/:ownerid   | YES           | user | Delete my user       |                                              | { message: 'Profile deleted' }
-DELETE | /api/user/:id   | YES           | admin | Delete user by id       |                                              | { message: 'Profile deleted', user: user }
-PUT    | /api/user/:ownerid   | YES   | user/admin | Edit my profile      |       `name`, `username`, `email`, `password`           | {message: 'User updated'}
-PUT    | /api/user/:id   | YES   | admin | Edit user id profile      |       `name`, `username`, `email`, `password`           | {message: 'User updated', user: user}
-POST   | /api/user/:ownerid/comments    | YES   | user |  Post a comment    | `query params`           | {comment}
+GET    | /api/user/:id  | YES   | user/admin | Get my user       |  `query params`                                        | {user}
+GET    | /api/user      | YES   | admin | Get all users       |                                     | [{users}]
+GET    | /api/user/:id   | YES   | admin | Get user by id     |  `query params`                                        | {user}
+GET    | /api/user/:ownerid/comments    | YES   | user |  See all my comments    | `query params`           | [{comment}] //revisar
+DELETE | /api/user/:id   | YES           | user | Delete my user       |     `query params`                                         | { message: 'User deleted' }
+DELETE | /api/user/:id   | YES           | admin | Delete user by id       |                                              | { message: 'Profile deleted', user: user } ##crear función
+PUT    | /api/user/:id   | YES   | user/admin | Edit my profile      |       `name`, `username`, `email`, `password`           | {message: 'User updated'}
+PUT    | /api/user/:id   | YES   | admin | Edit user id profile      |       `name`, `username`, `email`, `password`           | {message: 'User updated', user: user} ##crear función
 
 
 ### My_catalogue Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /api/my_catalogue   | YES   | admin |  Get all my catalogue     | `query params`                              | [{my_catalogue}]
-GET    | /api/my_catalogue/user/:id    | YES   | admin |  Get user catalogue by id     | ``query params`                      | {my_catalogue}
-GET    | /api/my_catalogue/:id	  | YES   | user | Get my catalogues owned      |  `query params`     | [{catalogue}]
-PUT    | /api/my_catalogue/:id    | YES   | user/admin | Edit my catalogue by id (game status and ownership)      |     `Status`, `Owned`   | {message: 'My catalogue updated'}
-DELETE | /api/my_catalogue/:id   | YES   | user/admin  | Delete my catalogue by id (game)          |                        | { message: 'Game deleted' }
+GET    | /api/my_catalogue/all   | YES   | admin |  Get all user catalogue     |                              | [{my_catalogue}]
+GET    | /api/my_catalogue   | YES   | user/admin |  Get my catalogue     |                             | [{my_catalogue}]
+GET    | /api/my_catalogue/:id    | YES   | user/admin |  Get user game by id     | ``query params`                      | {my_catalogue}
+POST    | /api/my_catalogue    | YES   | admin |  Add game to user catalogue     |  `userId`, `catalogueId`, `favorite`, `status`, `owned`                      | {my_catalogue}
+POST    | /api/my_catalogue/:id    | YES   | user |  Add game to my catalogue     | ``query params`, `favorite`, `status`, `owned`                    | {my_catalogue}
+PUT    | /api/my_catalogue/:id    | YES   | user/admin | Edit my catalogue by id (game status and ownership)      |     `Status`, `Owned`   | {message: 'My catalogue updated'} ##crear funcion
+DELETE | /api/my_catalogue/:id   | YES   | user/admin  | Delete my catalogue by id (game)          |                        | { message: 'Game deleted' } 
 
 
 ### Catalogue Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /api/catalogue	    | NO   | user/admin | Get All Catalogue       |  `query params`                                 | [{catalogue}]
-GET    | /api/catalogue/:id    | NO   | user/admin | Get catalogue by ID	query params |                        | {catalogue}
-GET    | /api/catalogue/:id/comments	  | YES   | user/admin | Get comments for a specific catalogue entry      |  `query params`     | [{comments}]
-GET    | /api/catalogue/genre/:id	  | NO   | user | Get all catalogues of a specific genre      |  `query params`     | [{catalogue}]
+GET    | /api/catalogue	    | NO   | user/admin | Get All Catalogue       |                                  | [{catalogue}]
+GET    | /api/catalogue/:id    | NO   | user/admin | Get catalogue by ID	 |           ``query params`             | {catalogue}
+GET    | /api/catalogue/:id/comments	  | YES   | user/admin | Get comments for a specific catalogue entry      |  `query params`     | [{comments}] ##revisar
+GET    | /api/catalogue/genre	  | NO   | user/admin | Get all catalogues of a specific genre      |  `query params`     | [{catalogue}]
 GET    | /api/catalogue/year	    | NO   | user | Get all catalogues released in a specific year       |  `query params`         | [{catalogue}]
 POST   | /api/catalogue  | YES   | admin | Create videogame data      |       `title`, `description`, `genre`, `year`, `company`, `rate`          | {message: 'Game created' catalogue: catalogue}
-POST   | /api/catalogue/:id/comments	  | YES   | user/admin | Post a new comment for a specific catalogue entry      |  `text`     | [{comments}]
+POST   | /api/catalogue/:id/comments	  | YES   | user/admin | Post a new comment for a specific catalogue entry      |  `text`     | [{comments}] ##revisar
 PUT    | /api/catalogue/:id    | YES   | user |  Update a catalogue entry by ID      | `title`, `description`, `genre`, `year`, `company`, `rate`    | {message: 'Catalogue updated'}
 DELETE | /api/catalogue/:id    | YES   | user | Delete a catalogue entry by ID       |                      | { message: 'Catalogue deleted' }
 DELETE | /api/catalogue/:id/comment/:id      | YES   | user | Delete a comment on a specific catalogue entry     |    | {message: 'Comment deleted'}
@@ -109,13 +110,12 @@ DELETE | /api/catalogue/:id/comment/:id      | YES   | user | Delete a comment o
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
-GET    | /api/platform            | NO   | user/admin | Get All Platforms       |  `query params`                                 | [{platform}]
+GET    | /api/platform            | NO   | user/admin | Get All Platforms       |                                  | [{platform}]
 GET    | /api/platform/:id      | NO   | user/admin | Get One Platform       |                               | {platform}
-GET    | /api/platform/:id/catalogue     | NO   | user/admin | Get the catalogue of an specific platform       |                  | [{catalogue}]
-GET    | /api/platform/:id/catalogue/:id     | NO   | user | Get the specific catalogue of an specific platform       |                  | {catalogue}
-GET    | /api/platform/year/	            | NO   | user/admin | Get Platforms by Year       |  `year`                                 | [{platform}]
+GET    | /api/platform/:id/catalogue     | NO   | user/admin | Get the catalogue of an specific platform       |                  | {platform}
+GET    | /api/platform/year/	            | NO   | user/admin | Get Platforms by Year       |  `year`                                 | [{platform}] ##revisar
 POST   | /api/platform            | YES   | admin |  Create a new platform        | `name`,`version`, `year` | {platform}  | {message: 'Console created' platform: platform}
-POST   | /api/platform/:id/catalogue    | YES   | admin | Create the catalogue of an specific platform       |                  | [{catalogue}]
+POST   | /api/platform/:id/catalogue/:id    | YES   | admin | Create the catalogue of an specific platform       |                  | [{catalogue}]
 PUT    | /api/platform/:id     | YES   | admin |  Update an specific platform     | `name`,`version`, `year` | {platform}  | {message: 'Platfom updated'}
 DELETE | /api/platform/:id    | YES   | admin | Delete one platform         |                                                   | {message: 'Platform deleted'}
 

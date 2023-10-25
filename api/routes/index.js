@@ -1,25 +1,21 @@
 const router = require('express').Router()
 
 const userRouter = require('./user.router')
+const userCatalogueRouter = require('./user_catalogue.router')
 const platformRouter = require('./platform.router')
 const authRouter = require('./auth.router')
-
-//importar archivos rutas
-
+const contact_infoRouter = require('./contact_info.router')
+const commentRouter = require('./comment.router')
 const catalogueRouter = require('./catalogue.router')
 const collectionRouter = require('./collection.router')
-const contact_infoRouter = require('./contact_info.router')
-//importar archivos rutas y las almacenamos en las variables
-// const contact_infoRouter = require('./contact_info.router')
-// const commentRouter = require('./comment.router')
 
-//definir rutas almacenadas en las variables
-// router.use('/contact_info', contact_infoRouter)
-// router.use('/comment', commentRouter)
-
-//definir rutas directamente
-router.use('/contact_info', require ('./contact_info.router'))
-router.use('/comment', require('./comment.router'))
-
+router.use('/user', userRouter)
+router.use('/my_catalogue', userCatalogueRouter)
+router.use('/contact_info', contact_infoRouter)
+router.use('/comment', commentRouter)
+router.use('/auth', authRouter)
+router.use('/catalogue', catalogueRouter)
+router.use('/platform', platformRouter)
+router.use('/collection', collectionRouter)
 
 module.exports = router
