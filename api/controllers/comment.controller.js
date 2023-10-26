@@ -1,5 +1,6 @@
 const Comment = require('../models/comment.model')
 const Catalogue = require('../models/catalogue.model')
+const User = require('../models/user.model')
 
 async function getAllComment(req, res) {
     try {
@@ -29,7 +30,7 @@ async function getOneComment(req, res) {
     }
 }
 
-async function getOneCommentbyGame(req, res) {
+async function getOneCommentByGame(req, res) {
     
     try {
         
@@ -54,6 +55,28 @@ async function createComment(req, res) {
             comment: req.body.comment
         })
         return res.status(200).json({ message: 'Comment created', comment: comment })
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
+
+async function postOneCommentByGame(req, res) {
+    try {
+        const game = await Catalogue.findByPk(req.params.catalogueId)
+        const user = await User.findByPk(res.locals.user.id)
+        const comment = await Comment.create({
+            comment: req.body.comment
+        })
+        await user.addComment(comment)
+        await game.addComment(comment)
+        const result = await Catalogue.findByPk(req.params.catalogueId, {
+            include: Comment
+        })
+        if (result) {
+            return res.status(200).json(result)
+        } else {
+            return res.status(404).send('Comment not found')
+        }
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -100,5 +123,6 @@ module.exports = {
     createComment,
     updateComment,
     deleteComment,
-    getOneCommentbyGame,
+    getOneCommentByGame,
+    postOneCommentByGame
 }
