@@ -1,7 +1,7 @@
 favorite,status,owned,catalogueId,userId
 0,pending,0,2,61
 1,pending,0,3,61
-1,pending,0,3,67
+1,pending,0,3,66
 0,playing,1,5,55
 1,playing,1,8,54
 0,played,0,10,3
@@ -10,7 +10,7 @@ favorite,status,owned,catalogueId,userId
 1,playing,0,11,58
 1,pending,0,12,3
 1,pending,0,12,65
-1,pending,0,12,67
+1,pending,0,12,66
 0,pending,0,15,54
 0,pending,0,15,61
 1,playing,0,17,58
