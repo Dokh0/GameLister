@@ -13,7 +13,7 @@ Julio, Theshia and Yeray.
 Roles: There will be 2 main roles:
 - Admin: This role has full permissions. It can view, create, update and delete information from all tables.
 
-- User (pet owner): This role can view all vet and treatment information. But you can only see your own appointments, pets and contact information (not other users). Likewise, you can only create, update and delete your own data. You have access to the information of all available appointments and the possibility to update the "status" field of the appointments when you select one to book for your pet, so that its status changes to "not available".
+- User.
 
 ### Tables:
 ![image](https://github.com/Dokh0/GameLister/assets/139643932/fa9a3b21-093d-48fb-a322-be9fd16c7102)
